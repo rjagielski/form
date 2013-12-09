@@ -955,7 +955,10 @@ $.fn.formToArray = function(semantic, elements) {
             if (elements)
                 elements.push(el);
             a.push({name: n, value: v, type: el.type, required: el.required});
-        }
+        }else{
+            // This is not correct browser behaviour but deadline is close
+            a.push({name: n, value: 'off', type: el.type, required: el.required});
+        }                     
     }
 
     if (!semantic && form.clk) {
